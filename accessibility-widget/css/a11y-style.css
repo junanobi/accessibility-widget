@@ -1,0 +1,425 @@
+/* =========================================
+   1. CORE VARIABLES & THEME
+   ========================================= */
+:root {
+    --a11y-primary: #2563eb;       /* Modern Blue */
+    --a11y-primary-dark: #1d4ed8;
+    --a11y-bg-panel: rgba(255, 255, 255, 0.95);
+    --a11y-text-main: #1e293b;
+    --a11y-text-sub: #64748b;
+    --a11y-border: #e2e8f0;
+    --a11y-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* =========================================
+   2. FLOATING TRIGGER BUTTON
+   ========================================= */
+#a11y-trigger {
+    position: fixed;
+    bottom: 30px;
+    /* right: 30px; */
+    left: 30px;
+    width: 56px;
+    height: 56px;
+    background: var(--a11y-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#a11y-trigger:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: var(--a11y-primary-dark);
+}
+
+#a11y-trigger svg {
+    width: 46px;
+    height: 46px;
+    color: white;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
+/* =========================================
+   3. MAIN PANEL
+   ========================================= */
+#a11y-panel {
+    position: fixed;
+    top: 20px;
+    /* right: 20px; */
+    /* right: 20px; */
+    left: 20px;
+    width: 380px;
+    max-height: calc(100vh - 40px);
+    background: var(--a11y-bg-panel);
+    backdrop-filter: blur(10px); /* Efek kaca buram */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: var(--a11y-shadow);
+    border: 1px solid var(--a11y-border);
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#a11y-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Header */
+.a11y-header {
+    padding: 16px 20px;
+    background: white;
+    border-bottom: 1px solid var(--a11y-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.a11y-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--a11y-text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.a11y-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--a11y-text-sub);
+    padding: 4px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    display: flex;
+}
+
+.a11y-close:hover {
+    background: #f1f5f9;
+    color: var(--a11y-text-main);
+}
+
+.a11y-close svg { 
+    stroke:currentColor; stroke-width:2; fill:none;
+    width: 24px; height: 24px; stroke-width: 2; color: var(--a11y-text-sub);}
+.a11y-close svg:hover { color: var(--a11y-text-main);}
+
+/* Grid Content */
+.a11y-content {
+    overflow-y: auto;
+    padding: 16px;
+    max-height: 70vh;
+}
+
+.a11y-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* Buttons */
+.a11y-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 1px solid var(--a11y-border);
+    padding: 16px 8px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 90px;
+    position: relative;
+    user-select: none;
+}
+
+.a11y-btn:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.a11y-btn.active {
+    background: #eff6ff; /* Light Blue Bg */
+    border-color: var(--a11y-primary);
+    color: var(--a11y-primary);
+}
+
+/* Icon Styles */
+.a11y-icon-box {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    color: var(--a11y-text-sub);
+    transition: color 0.2s;
+}
+
+.a11y-btn.active .a11y-icon-box {
+    color: var(--a11y-primary);
+}
+
+.a11y-icon-box svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.a11y-btn span {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--a11y-text-main);
+}
+
+.a11y-btn.active span {
+    color: var(--a11y-primary);
+}
+
+/* Reset Button Special Style */
+.a11y-btn[data-action="reset"] {
+    align-items: center;
+    grid-column: span 3;
+    flex-direction: row;
+    gap: 10px;
+    min-height: 50px;
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #ef4444;
+}
+.a11y-btn[data-action="reset"]:hover {
+    background: #fee2e2;
+}
+.a11y-btn[data-action="reset"] .a11y-icon-box {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    color: #ef4444;
+}
+.a11y-btn[data-action="reset"] span{
+    color: #ef4444;
+}
+
+/* Indicators (Dots) */
+.a11y-indicators {
+    position: absolute;
+    bottom: 6px;
+    display: flex;
+    gap: 3px;
+}
+.a11y-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    transition: all 0.3s;
+}
+.a11y-dot.active {
+    background-color: var(--a11y-primary);
+    transform: scale(1.2);
+}
+
+/* =========================================
+   4. POPUPS (Dictionary & Tooltips)
+   ========================================= */
+.a11y-dict-modal {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    padding: 20px;
+    z-index: 10002;
+    display: none;
+    border: 1px solid var(--a11y-border);
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: sans-serif;
+}
+.a11y-dict-modal.active { display: block; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.a11y-dict-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.a11y-dict-word { font-size: 20px; font-weight: 800; color: var(--a11y-primary); text-transform: capitalize; }
+.a11y-dict-def { font-size: 14px; line-height: 1.6; color: #4b5563; }
+.a11y-dict-close { background: none; border: none; cursor: pointer; color: #9ca3af; padding: 0; }
+
+.a11y-tooltip-box {
+    position: fixed;
+    background: #1e293b;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    z-index: 99999;
+    pointer-events: none;
+    max-width: 250px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+/* =========================================
+   5. FUNCTIONAL HELPERS (Same as before)
+   ========================================= */
+html.a11y-contrast-high { filter: contrast(150%); }
+html.a11y-contrast-dark { filter: invert(100%) hue-rotate(180deg); }
+html.a11y-saturation-low { filter: grayscale(100%); }
+html.a11y-saturation-high { filter: saturate(200%); }
+html.a11y-bigger-text { font-size: 120% !important; }
+html.a11y-extra-big-text { font-size: 140% !important; }
+html.a11y-lh-1 * { line-height: 1.5 !important; }
+html.a11y-lh-2 * { line-height: 1.8 !important; }
+html.a11y-lh-3 * { line-height: 2.2 !important; }
+html.a11y-align-left * { text-align: left !important; }
+html.a11y-align-right * { text-align: right !important; }
+html.a11y-align-center * { text-align: center !important; }
+html.a11y-align-justify * { text-align: justify !important; }
+html.a11y-highlight-links a { background: #fef08a !important; color: #000 !important; text-decoration: underline !important; border: 1px solid #eab308; }
+/* html.a11y-hide-images img, html.a11y-hide-images video, html.a11y-hide-images svg { opacity: 0 !important; } */
+/* 1. Aturan Dasar: Sembunyikan semua gambar & SVG di website */
+html.a11y-hide-images img, 
+html.a11y-hide-images video, 
+html.a11y-hide-images svg { 
+    opacity: 0 !important; 
+    visibility: hidden !important; 
+}
+
+/* 2. PENGECUALIAN: Paksa Icon Widget agar TETAP TAMPIL */
+/* Kita override aturan di atas khusus untuk elemen di dalam widget */
+
+html.a11y-hide-images #a11y-trigger svg,          /* Icon tombol bulat utama */
+html.a11y-hide-images #a11y-panel svg,            /* Semua icon di dalam panel menu */
+html.a11y-hide-images .a11y-dict-modal svg,       /* Icon close di popup kamus */
+html.a11y-hide-images .a11y-structure-modal svg { /* Icon close di modal struktur */
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Opsional: Jika website Anda menggunakan background-image, sembunyikan juga */
+html.a11y-hide-images * {
+    background-image: none !important;
+}
+html.a11y-dyslexia * { font-family: 'Comic Neue', 'Comic Sans MS', sans-serif !important; }
+html.a11y-cursor-big * { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="black"><path d="M7 2l12 11.2-5.8.5 3.3 7.3-2.2.9-3.2-7.4-4.4 4V2z"/></svg>'), auto !important; }
+html.a11y-pause-anim * { animation-play-state: paused !important; transition: none !important; }
+
+
+/* 1. BADGE VERSION */
+.a11y-badge {
+    font-size: 10px;
+    background: #dbeafe;
+    color: var(--a11y-primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-weight: 800;
+    border: 1px solid #bfdbfe;
+    vertical-align: middle;
+}
+
+/* 2. NEW FUNCTIONAL CLASSES */
+
+/* Text Spacing */
+html.a11y-spacing-medium * { letter-spacing: 0.05em !important; word-spacing: 0.1em !important; line-height: 1.6 !important; }
+html.a11y-spacing-wide * { letter-spacing: 0.1em !important; word-spacing: 0.2em !important; line-height: 2 !important; }
+
+/* Saturation */
+html.a11y-saturation-low { filter: grayscale(100%); }
+html.a11y-saturation-high { filter: saturate(200%); }
+
+/* Page Structure Modal */
+.a11y-structure-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90%;
+    max-height: 80vh;
+    background: white;
+    z-index: 10005;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--a11y-border);
+    display: none;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+.a11y-structure-modal.active { display: flex; }
+
+.a11y-struct-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 12px 12px 0 0;
+}
+.a11y-struct-header h3 { margin: 0; font-size: 16px; color: var(--a11y-primary); }
+
+.a11y-struct-content {
+    padding: 20px;
+    overflow-y: auto;
+}
+.a11y-struct-item {
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--a11y-text-main);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.a11y-struct-item:hover { color: var(--a11y-primary); padding-left: 5px; }
+.a11y-tag-label {
+    background: #e2e8f0;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-right: 8px;
+    color: #475569;
+    font-weight: bold;
+}
+
+
+/* Footer Styles */
+.a11y-footer {
+    padding: 12px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--a11y-text-sub); /* Menggunakan variabel warna abu-abu */
+    background: #f8fafc;
+    border-top: 1px solid var(--a11y-border);
+    margin-top: auto; /* Memastikan footer selalu di bawah jika menggunakan flex */
+}
+
+/* Update Pengecualian Hide Images (Agar footer tidak hilang saat mode Hide Images) */
+html.a11y-hide-images .a11y-footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Website - Accessibility Widget Test</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="accessibility-widget/css/a11y-style.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-600" aria-label="Logo Perusahaan">A11Y Demo</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#"
+                        class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Beranda</a>
+                    <a href="#about"
+                        class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Tentang</a>
+                    <a href="#services"
+                        class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Layanan</a>
+                    <button
+                        class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition"
+                        aria-label="Tombol Daftar">Daftar Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
+                Membangun Web yang <span class="text-blue-600">Inklusif</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                Ini adalah halaman demo untuk menguji widget aksesibilitas Anda. Coba gunakan fitur seperti <strong>Text
+                    to Speech</strong>, <strong>Contrast</strong>, dan <strong>Dyslexia Friendly</strong> font pada teks
+                ini.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#"
+                    class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+                    Mulai Eksplorasi
+                </a>
+                <a href="#"
+                    class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">
+                    Pelajari Lebih Lanjut
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Tentang Aksesibilitas</h2>
+            <div class="prose prose-lg text-gray-600 mx-auto">
+                <p class="mb-4">
+                    Aksesibilitas web (a11y) adalah praktik inklusif untuk memastikan tidak ada hambatan yang mencegah
+                    interaksi dengan, atau akses ke, situs web oleh orang-orang dengan disabilitas fisik, disabilitas
+                    kognitif, dan hambatan sosial-ekonomi.
+                </p>
+                <p class="mb-4">
+                    Saat situs web dirancang dengan benar, semua pengguna memiliki akses yang sama ke informasi dan
+                    fungsionalitas. Coba gunakan fitur <strong>"Line Height"</strong> atau <strong>"Text
+                        Spacing"</strong> pada widget Anda untuk melihat bagaimana teks ini berubah menjadi lebih mudah
+                    dibaca.
+                </p>
+                <blockquote class="border-l-4 border-blue-500 pl-4 italic bg-white p-4 rounded shadow-sm my-6">
+                    "Kekuatan web ada pada keuniversalannya. Akses oleh semua orang terlepas dari disabilitas adalah
+                    aspek yang esensial." — Tim Berners-Lee
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Fitur Kami</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Analisis Data pada Layar Komputer" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Analisis Data</h3>
+                        <p class="text-gray-600">Kami membantu mengolah data Anda menjadi wawasan yang dapat
+                            ditindaklanjuti dengan cepat.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline font-medium">Baca
+                            selengkapnya &rarr;</a>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Orang sedang coding di laptop" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Web Development</h3>
+                        <p class="text-gray-600">Membangun website modern yang cepat, responsif, dan tentu saja
+                            aksesibel untuk semua orang.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline font-medium">Lihat portofolio
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gray-50 rounded-xl overflow-hidden shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Pertemuan tim di kantor modern" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Konsultasi Tim</h3>
+                        <p class="text-gray-600">Pelatihan dan konsultasi untuk meningkatkan produktivitas dan
+                            inklusivitas tim Anda.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 hover:underline font-medium">Hubungi kami
+                            &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-500 mb-4">Coba fitur <strong>"Hide Images"</strong> pada widget untuk menyembunyikan
+                    gambar di atas.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h4 class="text-xl font-bold mb-4">A11Y Demo</h4>
+                    <p class="text-gray-400 max-w-sm">Website ini dibuat untuk mendemonstrasikan kemampuan widget
+                        aksesibilitas buatan sendiri.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tautan</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#" class="hover:text-white transition">Fitur</a></li>
+                        <li><a href="#" class="hover:text-white transition">Harga</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2026 Demo Company. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="accessibility-widget/js/a11y-script.js"></script>
+</body>
+
+</html>
