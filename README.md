@@ -1,4 +1,4 @@
-![Interface A11y Widget](Screenshot 2026-03-06 at 09.07.31.png)
+<img src="Screenshot 2026-03-06 at 09.07.31.png" alt="Interface A11y Widget">
 
 # ♿ A11y Widget (Vanilla JS Accessibility Tool)
 
