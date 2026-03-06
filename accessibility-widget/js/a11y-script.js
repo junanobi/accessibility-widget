@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="a11y-footer">
-            &copy; ${new Date().getFullYear()} <a href="https://www.instagram.com/aku.juna/">Accessibility Widget.</a> All rights reserved.• timdev Diksominfo SP Tuban
+            &copy; ${new Date().getFullYear()} <a href="https://github.com/junanobi/accessibility-widget">Accessibility Widget.</a> All rights reserved.• timdev Diksominfo SP Tuban
         </div>
     </div>
     
