@@ -1,3 +1,5 @@
+![Interface A11y Widget](Screenshot 2026-03-06 at 09.07.31.png)
+
 # ♿ A11y Widget (Vanilla JS Accessibility Tool)
 
 ![Version](https://img.shields.io/badge/version-2.0-blue.svg)
